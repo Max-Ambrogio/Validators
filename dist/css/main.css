@@ -179,6 +179,10 @@ body {
 	-webkit-transform: translateZ(100px);
 	        transform: translateZ(100px);
 }
+.floating-box .foreground .feedback {
+	margin-left: 15px;
+	font-weight: 700;
+}
 .floating-box .background {
 	position: absolute;
 	width: 100%;

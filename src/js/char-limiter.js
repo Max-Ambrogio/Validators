@@ -81,14 +81,25 @@ class CharLimiter {
             }      
         }
 
-        //keypress check if lenght of the input is 0
-        //if lenght is = 0 remove span
+        if(curLen == 0) {
+            span.innerText = ""
+        }
 
-        console.log('keydown' , curLen, remaining)
+        // console.log('keydown' , curLen, remaining)
+
+        const inputbox = document.querySelector('input')
+
         if(remaining <= 0) {
             if ([8, 46, 37, 39].includes(evt.keyCode)) {return}
             evt.preventDefault()
+            span.innerText = "Error. limit reached"
+            inputbox.style.backgroundColor = "red"
         }
+
+        if(remaining >= 1){
+            inputbox.style.backgroundColor = "white"
+        }
+
     }
 
     handleKeyUp = (evt) => {
@@ -96,5 +107,7 @@ class CharLimiter {
         const remaining = this.options.max - curLen
         
     }
+
+
 
 }

@@ -46,11 +46,14 @@ var CharLimiter = /*#__PURE__*/function () {
         if (curLen <= 6) {
           span.style.color = "black";
         }
-      } //keypress check if lenght of the input is 0
-      //if lenght is = 0 remove span
+      }
+
+      if (curLen == 0) {
+        span.innerText = "";
+      } // console.log('keydown' , curLen, remaining)
 
 
-      console.log('keydown', curLen, remaining);
+      var inputbox = document.querySelector('input');
 
       if (remaining <= 0) {
         if ([8, 46, 37, 39].includes(evt.keyCode)) {
@@ -58,6 +61,12 @@ var CharLimiter = /*#__PURE__*/function () {
         }
 
         evt.preventDefault();
+        span.innerText = "Error. limit reached";
+        inputbox.style.backgroundColor = "red";
+      }
+
+      if (remaining >= 1) {
+        inputbox.style.backgroundColor = "white";
       }
     });
 

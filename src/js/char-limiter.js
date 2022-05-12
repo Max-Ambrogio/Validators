@@ -71,7 +71,10 @@ class CharLimiter {
         const curLen = evt.target.value.length
         const remaining = this.options.max - curLen
 
-        const span = document.querySelector(".feedback")
+        // evt.target.querySelector... for individual fields. 
+        // this.feedback.innerText = remaining + " characters left"
+
+        const span = this.feedback
         span.innerText = remaining + " characters left"
 
         if(curLen > 5) {
@@ -96,7 +99,7 @@ class CharLimiter {
             inputbox.style.backgroundColor = "red"
         }
 
-        if(remaining >= 1){
+        if(remaining > 0){
             inputbox.style.backgroundColor = "white"
         }
 

@@ -16,11 +16,33 @@
 		<div class="floating-box">
 			<img class="logo" src="dist/img/logo.png" alt="Circus Logo" />
 			<div class="foreground">
+				<form>
+					<div>
+						<label for="">name</label>
+						<input name="name" data-validate="required min-length full-name" data-min-length="8">
+					</div>
+					<div>
+						<label for="">email</label>
+						<input name="email" data-validate="required email">
+					</div>
+					<div>
+						<label for="">phone</label>
+						<input name="phone" data-validate="required max-length" data-max-length="10">
+					</div>
+				</form>
 		
 			</div>
 			<div class="background"></div>
 		</div>
 
+		<!-- phone number input field -->
+		<!-- other fields  -->
+
+		<script src="dist/js/base-validator.js"></script>
+		<script src="dist/js/validations.js"></script>
+		<script src="dist/js/validators/required.js"></script>
+		<script src="dist/js/validators/max-length.js"></script>
+		<script src="dist/js/validators/min-length.js"></script>
 		<script src="dist/js/char-limiter.js"></script>
 		<script src="dist/js/main.js"></script>
 

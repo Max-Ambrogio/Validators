@@ -36,8 +36,10 @@ var CharLimiter = /*#__PURE__*/function () {
 
     _defineProperty(this, "handleKeyDown", function (evt) {
       var curLen = evt.target.value.length;
-      var remaining = _this.options.max - curLen;
-      var span = document.querySelector(".feedback");
+      var remaining = _this.options.max - curLen; // evt.target.querySelector... for individual fields. 
+      // this.feedback.innerText = remaining + " characters left"
+
+      var span = _this.feedback;
       span.innerText = remaining + " characters left";
 
       if (curLen > 5) {
@@ -65,7 +67,7 @@ var CharLimiter = /*#__PURE__*/function () {
         inputbox.style.backgroundColor = "red";
       }
 
-      if (remaining >= 1) {
+      if (remaining > 0) {
         inputbox.style.backgroundColor = "white";
       }
     });

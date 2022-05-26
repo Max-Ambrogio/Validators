@@ -183,6 +183,12 @@ body {
 	margin-left: 15px;
 	font-weight: 700;
 }
+.floating-box .foreground label {
+	margin-right: 20px;
+}
+.floating-box .foreground input {
+	margin-bottom: 20px;
+}
 .floating-box .background {
 	position: absolute;
 	width: 100%;

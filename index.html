@@ -18,16 +18,22 @@
 			<div class="foreground">
 				<form>
 					<div>
-						<label for="">name</label>
+						<label for="">Name</label>
 						<input name="name" data-validate="required min-length full-name" data-min-length="8">
 					</div>
 					<div>
-						<label for="">email</label>
-						<input name="email" data-validate="required email">
+						<label for="">Email</label>
+						<input class="email" name="email" data-validate="required email">
 					</div>
+
 					<div>
-						<label for="">phone</label>
-						<input name="phone" data-validate="required max-length" data-max-length="10">
+						<label for="">Confirm Email</label>
+						<input name="Confirm-email" data-validate="required email confirmation" data-confirm-matches=".email">
+					</div>
+
+					<div>
+						<label for="">Phone</label>
+						<input name="phone" data-validate="required phone">
 					</div>
 				</form>
 		
@@ -41,6 +47,9 @@
 		<script src="dist/js/base-validator.js"></script>
 		<script src="dist/js/validations.js"></script>
 		<script src="dist/js/validators/required.js"></script>
+		<script src="dist/js/validators/phone.js"></script>
+		<script src="dist/js/validators/email.js"></script>
+		<script src="dist/js/validators/confirmation.js"></script>
 		<script src="dist/js/validators/max-length.js"></script>
 		<script src="dist/js/validators/min-length.js"></script>
 		<script src="dist/js/char-limiter.js"></script>

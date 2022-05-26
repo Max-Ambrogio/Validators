@@ -24,15 +24,15 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var MinLengthValidator = /*#__PURE__*/function (_BaseValidator) {
-  _inherits(MinLengthValidator, _BaseValidator);
+var ConfirmationValidator = /*#__PURE__*/function (_BaseValidator) {
+  _inherits(ConfirmationValidator, _BaseValidator);
 
-  var _super = _createSuper(MinLengthValidator);
+  var _super = _createSuper(ConfirmationValidator);
 
-  function MinLengthValidator() {
+  function ConfirmationValidator() {
     var _this;
 
-    _classCallCheck(this, MinLengthValidator);
+    _classCallCheck(this, ConfirmationValidator);
 
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
@@ -41,15 +41,21 @@ var MinLengthValidator = /*#__PURE__*/function (_BaseValidator) {
     _this = _super.call.apply(_super, [this].concat(args));
 
     _defineProperty(_assertThisInitialized(_this), "validate", function (changedValue) {
-      console.log('checking for min length', changedValue);
-      var minLength = parseInt(_this.options.minLength); // console.log(minLength)
+      console.log('checking if values match ', changedValue);
+      var match = document.querySelector(".email"); // const confirmation = parseInt(this.options.confirmMatches)
 
-      var isValid = changedValue.length > minLength;
+      console.log(match.value);
+      var stringConf = JSON.stringify(match.value);
+      var stringOrigional = JSON.stringify(changedValue);
+      console.log(stringConf);
+      console.log(stringOrigional);
+      var isValid = stringOrigional == stringConf;
+      console.log(isValid);
 
       if (isValid) {
-        _this.removeError('min-length');
+        _this.removeError('confirmation');
       } else {
-        _this.addError('min-length', "value is too short.");
+        _this.addError('confirmation', "Emails do not match");
       }
 
       return isValid;
@@ -58,6 +64,6 @@ var MinLengthValidator = /*#__PURE__*/function (_BaseValidator) {
     return _this;
   }
 
-  return _createClass(MinLengthValidator);
-}(BaseValidator);
-//# sourceMappingURL=min-length.js.map
+  return _createClass(ConfirmationValidator);
+}(BaseValidator); // var emailRegex = /^\w+[\w-\+_]*@\w+\.\w+/
+//# sourceMappingURL=confirmation.js.map

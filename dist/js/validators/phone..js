@@ -24,15 +24,15 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var MinLengthValidator = /*#__PURE__*/function (_BaseValidator) {
-  _inherits(MinLengthValidator, _BaseValidator);
+var PhoneValidator = /*#__PURE__*/function (_BaseValidator) {
+  _inherits(PhoneValidator, _BaseValidator);
 
-  var _super = _createSuper(MinLengthValidator);
+  var _super = _createSuper(PhoneValidator);
 
-  function MinLengthValidator() {
+  function PhoneValidator() {
     var _this;
 
-    _classCallCheck(this, MinLengthValidator);
+    _classCallCheck(this, PhoneValidator);
 
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
@@ -41,23 +41,28 @@ var MinLengthValidator = /*#__PURE__*/function (_BaseValidator) {
     _this = _super.call.apply(_super, [this].concat(args));
 
     _defineProperty(_assertThisInitialized(_this), "validate", function (changedValue) {
-      console.log('checking for min length', changedValue);
-      var minLength = parseInt(_this.options.minLength); // console.log(minLength)
-
-      var isValid = changedValue.length > minLength;
+      console.log('checking for phone number', changedValue);
+      var phone = changedValue;
+      var stringPhone = JSON.stringify(phone);
+      console.log(stringPhone);
+      var regex = /^\w+[\w-\+_]*@\w+\.\w+/;
+      console.log(regex);
+      var isValid = stringPhone.match(regex);
+      console.log(isValid);
 
       if (isValid) {
-        _this.removeError('min-length');
+        _this.removeError('phone', "");
       } else {
-        _this.addError('min-length', "value is too short.");
+        _this.addError('phone', "Not a valid phone number");
       }
 
       return isValid;
     });
 
     return _this;
-  }
+  } // var emailRegex = /^\w+[\w-\+_]*@\w+\.\w+/
 
-  return _createClass(MinLengthValidator);
+
+  return _createClass(PhoneValidator);
 }(BaseValidator);
-//# sourceMappingURL=min-length.js.map
+//# sourceMappingURL=phone..js.map

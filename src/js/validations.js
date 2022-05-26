@@ -11,12 +11,23 @@ class Validations {
                 switch (key) {
                     case 'required':
                         new RequiredValidator(element, element.dataset)
+                        break
                     case 'min-length':
                         new MinLengthValidator(element, element.dataset)
-                    case 'email':
-                        new MinLengthValidator(element, element.dataset)
+                        break 
                     case 'max-length':
                         new MaxLengthValidator(element, element.dataset)
+                        break
+                    case 'email':
+                        new EmailValidator(element, element.dataset)
+                        break
+                    case 'phone':
+                        new PhoneValidator(element, element.dataset)
+                        break
+                    case 'confirmation':
+                        new ConfirmationValidator(element, element.dataset)
+                        break
+                
                 }
             })
         })
